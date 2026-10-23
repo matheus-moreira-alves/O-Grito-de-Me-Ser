@@ -2,7 +2,7 @@
 
 Site estático (Astro) do blog **O Grito de Me Ser**, publicado pelo GitHub Pages.
 Os textos ficam neste repositório, um arquivo por texto, separados do código.
-Não há banco de dados, servidor nem serviço pago.
+Não há banco de dados, servidor nem serviço pago .
 
 ## Onde está cada coisa
 
