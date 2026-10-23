@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>O Grito de Me Ser</title>
+<meta name="description" content="Escritas de Mathias. Porque há direito ao grito: então eu grito.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--wall:#d8cfbd;--ink:#1d1a16;--dim:#5e5649;--mark:#a8322a;--rule:#1d1a1633;
+--serif:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--wall:#241d18;--ink:#e4dccb;--dim:#a39880;--mark:#d4574c;--rule:#e4dccb33}}
+:root[data-theme=dark]{--wall:#241d18;--ink:#e4dccb;--dim:#a39880;--mark:#d4574c;--rule:#e4dccb33}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--wall);color:var(--ink);font-family:var(--serif);font-size:1.2rem;line-height:1.7}
+a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--mark);outline-offset:3px}
+.meta,nav,input,button{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--wall);padding:.5rem}
+.top{display:flex;justify-content:space-between;gap:1rem;padding:1.2rem clamp(1rem,5vw,4rem)}
+.top a{text-decoration:none;color:var(--dim)}.top a:hover{color:var(--mark)}
+main{padding:0 clamp(1rem,5vw,4rem) 4rem}
+h1.name{margin:2rem 0 2.5rem;font-weight:400;line-height:.82;font-size:clamp(4.5rem,19vw,15rem);letter-spacing:-.04em}
+h1.name span{display:block}.name .b{font-size:.22em;font-style:italic;letter-spacing:0;margin:.2em 0 .1em 41%}
+.name .c{margin-left:18%;color:var(--mark)}
+.lede{max-width:34rem;margin:0 0 3rem 8%;color:var(--dim);font-size:1.05rem}
+.find{display:block;margin:0 0 2rem;padding:.4rem 0;width:min(100%,22rem);background:none;border:0;border-bottom:1px solid var(--ink);color:var(--ink)}
+.list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(12,1fr);gap:2.2rem 1.5rem}
+.list li{grid-column:span 6}.list li:first-child{grid-column:1/-1;margin-bottom:2rem}
+.list li:nth-child(even){grid-column:7/-1;margin-top:3rem}.list li:nth-child(3){grid-column:2/8}
+.list a{text-decoration:none;display:block;border-top:1px solid var(--rule);padding-top:.7rem}
+.list h2{margin:.2rem 0;font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.1}
+.list li:first-child h2{font-size:clamp(3.5rem,13vw,10rem);letter-spacing:-.03em;color:var(--mark)}
+.list a:hover h2{text-decoration:underline;text-decoration-thickness:1px}
+.list p{margin:.3rem 0 0;color:var(--dim);font-size:1.02rem;max-width:30rem}
+.meta{color:var(--dim)}
+article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,38rem) minmax(0,1.4fr);gap:0 2rem;margin-top:2rem}
+article>*{grid-column:2}article .meta{grid-column:1;grid-row:1;text-align:right;padding-top:.9rem}
+article h1{font-weight:600;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;margin:0 0 2.5rem;letter-spacing:-.015em}
+article p{margin:0 0 1.35em;hanging-punctuation:first}.gap{height:2rem}.close{margin-top:2rem}
+.end{margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:1.2rem 2rem}
+.end a,.end button{color:var(--dim);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+.end a:hover,.end button:hover{color:var(--mark)}
+.about{max-width:36rem;margin:3rem 0 0 12%}.about p{margin:0 0 1.3em}
+@media(max-width:760px){article{display:block}article .meta{text-align:left;margin-bottom:1rem;display:block}
+.list li,.list li:nth-child(even),.list li:nth-child(3){grid-column:1/-1;margin-top:0}.name .b{margin-left:30%}.about{margin-left:0}body{font-size:1.1rem}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+<nav class="top" aria-label="Principal"><a href="#/">O Grito de Me Ser</a><span><a href="#/sobre">Sobre</a> &nbsp; <a href="https://ogritodemeser.blogspot.com/" rel="noopener">Blog original</a></span></nav>
+<main id="main" tabindex="-1"></main>
+<script>
+const T=[
+{s:'acude',t:'AÇUDE.',d:'terça-feira, 6 de outubro de 2026',u:'https://ogritodemeser.blogspot.com/2026/10/acude.html',x:'Nada no sertão morre de uma vez só: morre-se aos poucos.'},
+{s:'a-geografia-do-encolhimento',t:'A geografia do encolhimento',d:'terça-feira, 19 de maio de 2026',u:'https://ogritodemeser.blogspot.com/2026/05/blog-post.html',x:'A principal coisa que a seca tira de um povo não é a água: é o excesso.'},
+{s:'maria-maria',t:'Maria, Maria.',d:'segunda-feira, 5 de janeiro de 2026',u:'https://ogritodemeser.blogspot.com/2026/01/maria-maria.html',x:'Manhã nenhuma me preparou para acordar assim: abrindo os olhos já atravessado.'},
+{s:'irmana-acontecer-te-ias',t:'Irmana, acontecer-te-ias.',d:'quinta-feira, 4 de dezembro de 2025',u:'https://ogritodemeser.blogspot.com/2025/12/irmana-acontecer-te-ias.html',x:'<em>Irmana</em>, eu tento, e já tentara antes, dizer-te alguma coisa, mas a frase se espatifa antes mesmo de se erguer.',b:[
+'<em>Irmana</em>, eu tento, e já tentara antes, dizer-te alguma coisa, mas a frase se espatifa antes mesmo de se erguer. Começo e já escuto o estalo, já escuto o estilhaço, já escuto a língua ranger, como sempre rangera, como sempre rangeria. Porque tu já não és, já não foste, já não poderias voltar a ser <em>irmana</em>. Já deixaste de sê-la. És, agora, só o borrão que me morde. E eu te falo, mas a palavra me rosna, e já me rosnara, de volta.',
+'Já me arrependo antes de terminar o “a”. Já me sangro enquanto te adjetivo.',
+'Tu te perdeste, te ias perdendo, te perderias sempre e contigo eu me ia perdendo, perdera-me, perco-me, perder-me-ei tentando te localizar num mundo que já não te suporta, já não te abriga, já não te sustém. E eu te localizo mal, eu te localizo torta, eu te localizava antes de perceber que tu já não te querias localizar. E eu te encontro num ponto do mapa onde o ar há muito envenenara-se, envenenou-se, envernenar-se-ia. E, mesmo assim, tu escolheste ficar lá. Escolheste. Escolheras. Escolherias. E não me venhas tu com essa doçura canalha de “aconteceu-me”. Não te aconteceu: tu te aconteceste. Acontecer-te-ias tu ainda que o mundo fosse outro. Tu te jogaste. Tu te entregaste. Tu te dissolveste sabendo, prevendo, desejando. E ainda esperaras, esperas, esperarias que aceitemos isso com serenidade?',
+'Eu te vejo, já te vira, já te via, já te veria, tropeçando na tua própria sombra; cega dessa paixão de carne que te mastiga pelos pés e sobe até quase desfigurar-te. E eu quase grito, mas o grito também se destrói. O grito me trai. Destruir-se-ia sempre, de qualquer jeito. Talvez eu já não saiba mais gritar sem ti. O grito sai quebrado, sai desdentado, sai moído, sem borda, sem dono. Seria melhor que nem saísse.',
+'Eu todavia repito, repetia, repetiria. Mas teu nome falhara, falha, falhará. Teu nome espirra faísca. Teu nome se torce como se não quisesse mais ser pronunciado por mim. Como se o meu idioma, que já te fora abrigo, agora te ameaçasse.',
+'E sigo falando: falava torto, falo torto, falarei mais torto ainda. Porque tua ausência treinara-me assim: para tropeçar no idioma, para cambalear nas frases, para cuspir as palavras pela metade, ainda que dizê-las pela metade doa. E dói sempre, doía antes, doerá depois. Dói mais ainda concluir que não há volta; que tu escolheste ser outra; que me olha sem me reconhecer. Tu dizes amar alguém que não sabe, não soube, não saberá amar. <em>Tu te apagaste para caber na fantasia alheia.</em>',
+'Eu fico aqui mascando a frustação. Mastigo a língua até perder o gosto. Mastigo o vazio que deixaste. Mastigo o fato de que tu, que outrora sabias respirar o mundo com as duas mãos, agora respiras apenas o delírio de um corpo.',
+'E a saudade, palavra esta agora frouxa, falha, falidan, não serve, nunca serviu, jamais servirá para dizer a ânsia que me desce à coluna quando lembro de ti inteira: tu rindo torto, tu me olhando como se eu fosse parte do teu fôlego. Agora tu atravessas a vida como quem atravessa um incêndio carregando gasolina sob a pele.',
+'E eu te chamo, chamei, chamaria, chamarei mesmo sabendo que chamar-te é em vão. Te chamo porque ainda carrego a estupidez de acreditar que a voz salva. Mas tu não voltas. Tu não verias, tu não vês, tu não verás. Tu remas, remaste, remarias na direção contrária como se fugir de si mesma fosse sagrado.',
+'E a linguagem falha, falharia, falhou. A língua trinca, trincaria, trincou.<br>A fala me abandona, abandonara-me, abandonou-me.',
+'Porque há coisas sem palavra: perder alguém que ainda vive; chorar por quem existe; enterrar o que ainda respira.',
+'Eu te escrevo, escrevia, escreverei porque não sei fazer outra coisa. Mas até a escrita me cospe; lateja-me; trinca-me; racha-me. Desmonta-se enquanto a escrevo. Talvez porque tua maneira de te desfazeres contaminou a minha.',
+'Eu terminara, terminei, terminaria, terminarei aqui.<br>Mas não termino. Nunca terminará o que continua.']},
+{s:'sabe-se-la-o-que-seja',t:'Sabe-se lá o que seja.',d:'sábado, 13 de setembro de 2025',u:'https://ogritodemeser.blogspot.com/2025/09/sabe-se-la-o-que-seja.html',x:'Escrevo isto, sabe-se lá o que seja, com as mãos encharcadas, pois estive transbordando ininterruptamente pelos últimos 23 minutos.',b:[
+'Escrevo isto, sabe-se lá o que seja, com as mãos encharcadas, pois estive transbordando ininterruptamente pelos últimos 23 minutos. Escrevo isto, sabe-se lá o que seja, com os olhos vermelho-ardente-em-chamas. Escrevo isto, sabe-se lá o que seja, com uma dor de cabeça latejante quase relevante, se não fosse pela dor dilacerante que vem desta alma há muito desiludida. Escrevo isto, sabe-se lá o que seja, sem fôlego, pois é impossível respirar enquanto o faço. Escrevo isto, sabe lá o que seja, com uma sede insaciável e, o pior de tudo, familiar. Escrevo isto, sabe lá o que seja, contra minha vontade e só o faço porque a única alternativa que me resta é derramar-me em palavras.',
+'Isso que se sabe lá o que seja me aparece junto ao vento gélido, ao sol entediante, às corcundas verdes e à melancolia inerente ao final da tarde de sábado como uma manifestação imposta, como uma confissão involuntária.',
+'As palavras que conheço, coitadas, não são capazes de descrever o que fora os últimos 23 minutos. Seus significados são incapazes de conter o que escorre dentro de mim. Tento escrever a autópsia dessa alma, mas o que há nestas vísceras malogradas não há contorno.',
+'Há nesta alma uma urgência anterior a isto, sabe-se lá o que seja. Há nesta alma uma sensação arrebatadora. Há nesta alma uma saudade selvagem, sem nome nem rosto, apenas um peso insustentável. Começo acreditar que esta saudade é de um lugar que nunca vi, de um tempo inexistente ou, na pior das hipóteses, de alguém com quem sonhei. Mas esta saudade é anterior a tudo que existe, até esta alma mesma. É como se esta alma já nascesse com ausência.',
+'Há nesta alma um despertencimento atroz, uma sobra constante. Esta alma não é parte de nada, de ninguém, nem ao menos de isto, sabe-se lá o que seja. Esta alma está desesperadamente distante do mundo. Esta alma é uma intrusa no mundo, uma estrangeira a si própria. Ainda esta noite acordei fulminante, com uma frase pronta a ser dita. Mas a frase estava em outra língua que eu nunca sequer ouvi falar.',
+'<span class="gap"></span>Esta alma não apenas sente, sabe-se lá o quê; esta alma é, sabe-se lá o quê. Ela é a própria falta. Ela é a ausência de tudo que um dia prometeu-se ser. Ela é o oco das palavras ausentes. Ela é o quintal sequestrado. Ela é a calçada que não é mais ocupada. Sinto falta das pessoas que passaram como se nunca tivessem me tocado, mas tocaram. Sinto falta dos amigos com quem eu não precisava ser: estar bastava. Eu sinto uma falta que me ultrapassa. E por mais que eu tente, não me reconheço nem nesta alma, nem neste sabe-se lá o que seja.',
+'Pela tarde inteira fui-me questionado se esta alma não sou um fantasma ou um eco mudo. Não seria esta alma uma sombra que se perdeu em suas próprias fugas? Tenho imposto um silêncio que se estende por mais de três mil quilômetros e, assim, a vida de quem outrora tudo me foi desdobra-se numa novela que assisto em pequenas telas. A saudade é fumaça brava. O despertencimento é exílio interior. Não há xícara de café que me deixe memórias. Não há porta que abro que me leve a lugar acolhedor. Não há canto nesta casa que não me seja estranho. Tudo tem a frieza de uma história que não me é. Sinto-me um intruso nestas paredes ou, talvez, na minha própria vida ou, talvez, neste sabe-se lá o que seja.',
+'Mergulhado em tanta melancolia, volto a transbordar, mesmo achando que esta alma já estivesse seca. Percebo, finalmente: vaza de mim ausência em estado líquido. Extravasa-me tudo que sabe-se lá o que fui, sabe-se lá o que sou e sabe-se lá o que serei. Esta alma não sei ser filho, nem amigo, nem parte, nem tempo, nem história, nem fantasma, nem alma.',
+'Escrevo isto, sabe-se lá o que seja, somente porque isto, sabe-se lá o que seja, devolve-me a mim em frangalhos, mas ridiculamente vivo.']},
+{s:'27-vinte-e-sete-riscos',t:'27 (vinte e sete) riscos.',d:'quinta-feira, 14 de agosto de 2025',u:'https://ogritodemeser.blogspot.com/2025/08/27-vinte-e-sete-riscos.html',x:'A parede cor-de-areia tinha 27 riscos e apenas quatro eram maiores que um palmo seu.',b:[
+'A parede cor-de-areia tinha 27 riscos e apenas quatro eram maiores que um palmo seu. Carregava em seu olhar um cansaço inexplicável, quase triste. Havia lido que a tristeza era a ausência de felicidade e, por isso, não se considerava triste. Achava-se indigno da tristeza. Mas cerrava religiosamente, antes de dormir, o olhar à parede cor-de-areia do próprio quarto. Removera o espelho, afinal não se suportava mais; removera o pôster do cantor favorito, afinal não admirava mais; removera, também, o pequeno quadro com uma única borboleta solitária, afinal não se renovava mais.',
+'Deixou, assim, uma parede cor-de-areia limpa, exceto, somente, pelos arranhões: vinte e sete no total. Não sabia de qual maneira havia aparecido aquelas marcas, tampouco interessava-se em entendê-las. Estava tomado por uma inércia apática e incontrolável. Permaneceria imóvel em seu refúgio por horas, quiçá dias, se não fossem os ruídos externos que impiedosamente lhe invadiam. Eram eles: o sussurro cantarolante, quase mudo, de sua mãe; a pisada bruta de seu irmão; a tosse seca de seu pai; o gotejar da torneira do banheiro; o encaixe da corrente na coroa da bicicleta de algum pedalante que passava na rua.',
+'Era tamanho o silêncio em si próprio, que julgara certa vez ter ouvido a eletricidade fluindo pelas paredes. Nunca soube se, de fato, ouviu ou se apenas sonhou. Enquanto a vida insistia em existir, desejava era a inexistência. Olhava para cada arranhão na parede e sentia-se convidado a inexistir. Não sabia, todavia, como. Por vezes desafiava-se a algo rebelde, quase revolucionário: sentir. E quando sentia, doía-se tanto em tudo que até transbordava. Convenceu-se que chorava sem saber o porquê, mas, na verdade, sabia-o profundamente: sentia-se por inteiro. E era-lhe isto aterrorizante. Por isso havia feito consigo próprio um acordo: comprometeu-se a não mais sentir-se. Quando quebrava entretanto o autocontrato, era invadido por tudo que não lhe se permitia. Sentia, sobretudo, falta.',
+'Faltava-lhe um tempo que já se fora. Faltava-lhe uma felicidade genuína. Faltava-lhe, até mesmo, felicidades sequestradas. Faltava-lhe liberdade pura e não lapidada, ainda que esta nunca conhecera. Faltava-lhe perspectiva. Faltava-lhe tristeza justificável. Faltava-lhe o direito a sentir. Faltava-lhe, também, o direito a inexistir. Faltava-lhe alguém. Alguém este por quem fora afoitamente e desesperadamente apaixonado. Faltava-lhe mesmo era uma alcunha. Alcunhá-lo-ei, pois: era um enlutado. Carregava em si um luto atroz, um luto irreversível. Não percebia-o, curiosamente. Não percebia que era mesmo um triste. Como proibiu-se de sentir, não percebeu que sua alma estava dilacerada. Como olhava todos os dias para a sua parede cor-de-areia com vinte e sete riscos, não percebeu que tantos muitos mais que vinte e sete eram os arranhões de sua alma.',
+'E ao não perceber, nunca percebeu que vivia — digo melhor, existia — com um vazio inexplicável, uma tristeza instalada, uma falta imensurável, uma saudade brutal e outras vinte e três dilacerações, estas menores, talvez, que um palmo seu.']}
+];
+const LEDE='Peço que leiam estas escritas apenas aquelas pessoas cuja alma anseia por liberdade. Pois estas escritas, na verdade, são gritos: quem as lê, pois, as ouve. E eu sei que somente sentirão genuinamente o sentimento destes gritos aqueles que se esgoelam para tornar-se essencialmente livres. “Porque há direito ao grito: então eu grito.”';
+const M=document.getElementById('main'),esc=s=>s.replace(/<[^>]+>/g,'');
+function home(q=''){q=q.toLowerCase();
+const L=T.filter(a=>!q||(a.t+esc(a.x)+esc((a.b||[]).join(' '))).toLowerCase().includes(q));
+return`<h1 class="name" aria-label="O Grito de Me Ser"><span aria-hidden="true">O Grito</span><span class="b" aria-hidden="true">de me</span><span class="c" aria-hidden="true">Ser</span></h1>
+<p class="lede">${LEDE}</p>
+<label class="meta" for="q">Pesquisar nos textos</label><input id="q" class="find" type="search" value="${q}" autocomplete="off">
+<ul class="list">${L.map(a=>`<li><a href="${a.b?'#/t/'+a.s:a.u}"${a.b?'':' rel="noopener"'}><span class="meta">${a.d}${a.b?'':' · lê-se no blog original'}</span><h2>${a.t}</h2><p>${a.x}</p></a></li>`).join('')||'<li class="meta">Nada encontrado.</li>'}</ul>`}
+function read(s){const i=T.findIndex(a=>a.s===s),a=T[i];if(!a||!a.b)return home();const n=T[i+1],p=T[i-1],lk=x=>x?`<a href="${x.b?'#/t/'+x.s:x.u}">${x.t}</a>`:'';
+document.title=a.t+' — O Grito de Me Ser';
+return`<article><p class="meta">Escrito em plena<br>${a.d}<br>por Mathias</p><h1>${a.t}</h1>${a.b.map(x=>`<p>${x}</p>`).join('')}
+<div class="end meta"><a href="${a.u}" rel="noopener">Original no blog</a><button id="cp">Copiar link</button><a href="mailto:?subject=${encodeURIComponent(a.t)}&body=${encodeURIComponent(location.href)}">Enviar por e-mail</a>${n?'<span>Antes: '+lk(n)+'</span>':''}${p?'<span>Depois: '+lk(p)+'</span>':''}<a href="#/">Todas as escritas</a></div></article>`}
+function about(){return`<div class="about"><p class="meta">Sobre</p><p>Mathias escreve. Matheus assina, quando assina por inteiro.</p><p>“Eis-me aqui: um desiludido, desesperado, de exteriorizações indomáveis, impetuosas e impassíveis.”</p><p class="meta">Florianópolis, Santa Catarina — conforme o perfil do blog original.</p></div>`}
+function go(){const h=location.hash.replace(/^#\/?/,'');document.title='O Grito de Me Ser';
+M.innerHTML=h.startsWith('t/')?read(h.slice(2)):h==='sobre'?about():home();scrollTo(0,0);
+const q=document.getElementById('q');if(q)q.oninput=e=>{const v=e.target.value;M.innerHTML=home(v);const n=document.getElementById('q');n.oninput=q.oninput;n.focus();n.setSelectionRange(v.length,v.length)};
+const c=document.getElementById('cp');if(c)c.onclick=()=>navigator.clipboard&&navigator.clipboard.writeText(location.href).then(()=>c.textContent='Link copiado')}
+addEventListener('hashchange',go);go();
+</script>
+</body>
+</html>
