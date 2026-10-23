@@ -1,0 +1,15 @@
+---
+import { SITE } from '../config';
+import { url } from '../lib/util';
+import ThemeToggle from './ThemeToggle.astro';
+---
+<header class="topo">
+  <a class="marca" href={url()}>{SITE.titulo}</a>
+  <nav aria-label="Principal">
+    <a href={url()}>Escritos</a>
+    <a href={url('arquivo/')}>Arquivo</a>
+    <a href={url('busca/')}>Busca</a>
+    <a href={url('sobre/')}>Sobre</a>
+  </nav>
+  <ThemeToggle />
+</header>

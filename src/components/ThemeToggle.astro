@@ -1,0 +1,16 @@
+<button type="button" class="tema" id="alternar-tema" aria-label="Alternar entre tema claro e escuro">
+  <span class="tema-rotulo">Tema</span>
+</button>
+<script is:inline>
+  (function () {
+    var b = document.getElementById('alternar-tema');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var atual = document.documentElement.getAttribute('data-theme');
+      var sistema = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      var proximo = (atual || sistema) === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', proximo);
+      try { localStorage.setItem('tema', proximo); } catch (e) {}
+    });
+  })();
+</script>

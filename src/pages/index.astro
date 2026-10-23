@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getPosts } from '../lib/posts';
+import { SITE } from '../config';
+import { url } from '../lib/util';
+const posts = await getPosts();
+const recentes = posts.slice(0, 12);
+---
+<BaseLayout>
+  <section class="abertura">
+    <h1>{SITE.titulo}</h1>
+    <p>{SITE.apresentacao}</p>
+  </section>
+  <section class="lista" aria-labelledby="recentes">
+    <h2 id="recentes">Escritos mais recentes</h2>
+    {recentes.map((post) => <PostCard post={post} />)}
+    {posts.length > recentes.length && <p class="mais"><a href={url('arquivo/')}>Todos os {posts.length} escritos</a></p>}
+  </section>
+</BaseLayout>

@@ -1,0 +1,118 @@
+/* O Grito de Me Ser — base provisória de leitura.
+   Chão seco (cinza-poeira) e um único acento: a cor da água funda do açude.
+   Sem fontes externas: pilha serifada do sistema. */
+:root {
+  --papel: #e6e8e6;
+  --papel-2: #dcdfdc;
+  --tinta: #1d2422;
+  --tinta-2: #4b5552;
+  --linha: #bcc3bf;
+  --agua: #24433f;
+  --marca: #cfe3dc;
+  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Iowan Old Style", Georgia, serif;
+  --medida: 36rem;
+  --largo: 46rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel: #131819; --papel-2: #1a2123; --tinta: #dadcd6; --tinta-2: #9aa5a1;
+    --linha: #2c3735; --agua: #8fb5ac; --marca: #27413c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papel: #131819; --papel-2: #1a2123; --tinta: #dadcd6; --tinta-2: #9aa5a1;
+  --linha: #2c3735; --agua: #8fb5ac; --marca: #27413c; color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--papel); color: var(--tinta);
+  font-family: var(--serif); font-size: 1.125rem; line-height: 1.7;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+main { flex: 1; width: 100%; max-width: var(--largo); margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+a { color: var(--agua); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--agua); outline-offset: 3px; border-radius: 2px; }
+.pular { position: absolute; left: -999px; top: 0; background: var(--papel); padding: .5rem 1rem; z-index: 10; }
+.pular:focus { left: 0; }
+
+h1, h2, h3 { font-weight: 500; line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 2.9rem); }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.25rem; }
+
+/* Topo */
+.topo {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.5rem;
+  max-width: var(--largo); width: 100%; margin: 0 auto; padding: 1.25rem 1.25rem 0;
+}
+.marca { font-size: 1.15rem; font-weight: 600; color: var(--tinta); text-decoration: none; margin-right: auto; }
+.topo nav { display: flex; gap: 1.25rem; font-size: 1rem; }
+.topo nav a { color: var(--tinta-2); text-decoration: none; }
+.topo nav a:hover { color: var(--agua); text-decoration: underline; }
+.tema { font: inherit; font-size: .95rem; color: var(--tinta-2); background: none; border: 1px solid var(--linha); border-radius: 999px; padding: .1rem .8rem; cursor: pointer; }
+.tema:hover { color: var(--agua); border-color: var(--agua); }
+
+/* Abertura da página inicial */
+.abertura { padding: 2.5rem 0 3rem; border-bottom: 1px solid var(--linha); margin-bottom: 2.5rem; }
+.abertura h1 { margin-bottom: 1.25rem; }
+.abertura p { max-width: var(--medida); margin: 0; font-style: italic; color: var(--tinta-2); }
+
+/* Listas */
+.lista h1 { margin-bottom: .5rem; }
+.lista h2 { margin: 0 0 1.5rem; }
+.cartao { padding: 1.5rem 0; border-top: 1px solid var(--linha); }
+.cartao h3 a { color: var(--tinta); text-decoration: none; }
+.cartao h3 a:hover { color: var(--agua); text-decoration: underline; }
+.meta { display: flex; flex-wrap: wrap; gap: 0 1.1rem; margin: .35rem 0 0; font-size: .95rem; color: var(--tinta-2); }
+.trecho { margin: .75rem 0 0; max-width: var(--medida); color: var(--tinta-2); }
+.mais { margin-top: 1.5rem; }
+.ano { margin-top: 2.25rem; }
+.ano ul, .simples { list-style: none; margin: 1rem 0 0; padding: 0; }
+.ano li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: .35rem 0; border-top: 1px solid var(--linha); }
+.ano time { color: var(--tinta-2); font-size: .95rem; }
+.simples li { padding: .3rem 0; }
+
+/* Leitura: o centro do projeto */
+.leitura { max-width: var(--medida); margin: 0 auto; padding-top: 1.5rem; }
+.leitura-cabeca { margin-bottom: 2.5rem; }
+.leitura-cabeca h1 { margin-bottom: .75rem; }
+.texto { font-size: 1.2rem; line-height: 1.8; overflow-wrap: break-word; hyphens: manual; }
+.texto p { margin: 0 0 1.15em; }
+.texto p.espaco { height: 1.15em; margin: 0; }
+.texto blockquote { margin: 1.5em 0; padding-left: 1.25rem; border-left: 2px solid var(--linha); color: var(--tinta-2); }
+.texto img { display: block; max-width: 100%; height: auto; margin: 1.5rem 0; }
+.texto h2, .texto h3 { margin: 2em 0 .75em; }
+.marcadores { display: flex; flex-wrap: wrap; gap: .4rem 1.1rem; margin: 3rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--linha); font-size: .95rem; }
+.vizinhos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: var(--medida); margin: 4rem auto 0; font-size: 1rem; }
+.vizinhos a { display: block; text-decoration: none; color: var(--tinta); }
+.vizinhos a:hover { color: var(--agua); }
+.vizinhos small { display: block; color: var(--tinta-2); font-size: .85rem; }
+.vizinhos a[rel="next"] { text-align: right; }
+
+/* Busca */
+.campo { display: block; margin: 1.5rem 0 .4rem; font-size: .95rem; color: var(--tinta-2); }
+input[type="search"] { width: 100%; max-width: var(--medida); font: inherit; padding: .6rem .8rem; color: var(--tinta); background: var(--papel-2); border: 1px solid var(--linha); border-radius: 4px; }
+.resultados { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.resultados li { padding: 1rem 0; border-top: 1px solid var(--linha); }
+.resultados p { margin: .4rem 0 0; color: var(--tinta-2); font-size: 1rem; }
+mark { background: var(--marca); color: inherit; padding: 0 .1em; }
+
+/* Rodapé */
+.rodape { max-width: var(--largo); width: 100%; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; justify-content: space-between; border-top: 1px solid var(--linha); font-size: .95rem; color: var(--tinta-2); }
+.rodape p { margin: 0; display: flex; gap: 1.25rem; }
+
+@media (max-width: 34rem) {
+  body { font-size: 1.05rem; }
+  .texto { font-size: 1.125rem; }
+  .ano li { grid-template-columns: 1fr; gap: 0; }
+  .vizinhos { grid-template-columns: 1fr; }
+  .vizinhos a[rel="next"] { text-align: left; }
+}
+@media print {
+  .topo, .rodape, .vizinhos, .tema { display: none; }
+  body { background: #fff; color: #000; }
+}

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getPosts, porTag } from '../../lib/posts';
+import { url } from '../../lib/util';
+const mapa = porTag(await getPosts());
+const lista = [...mapa.entries()].sort((a, b) => b[1].posts.length - a[1].posts.length);
+---
+<BaseLayout titulo="Marcadores" descricao="Escritos reunidos por marcador.">
+  <section class="lista">
+    <h1>Marcadores</h1>
+    {lista.length === 0 && <p>Ainda não há marcadores.</p>}
+    <ul class="simples">
+      {lista.map(([chave, { nome, posts }]) => <li><a href={url(`tags/${chave}/`)}>{nome}</a> <span class="meta">{posts.length}</span></li>)}
+    </ul>
+  </section>
+</BaseLayout>

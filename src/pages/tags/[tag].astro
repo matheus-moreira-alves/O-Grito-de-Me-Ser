@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts, porTag } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const mapa = porTag(await getPosts());
+  return [...mapa.entries()].map(([tag, { nome, posts }]) => ({ params: { tag }, props: { nome, posts } }));
+}
+const { nome, posts } = Astro.props;
+---
+<BaseLayout titulo={nome} descricao={`Escritos marcados com "${nome}".`}>
+  <section class="lista">
+    <h1>{nome}</h1>
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</BaseLayout>

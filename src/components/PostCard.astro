@@ -1,0 +1,14 @@
+---
+import { url, formatDate, isoDay, trecho } from '../lib/util';
+import type { Post } from '../lib/posts';
+interface Props { post: Post; mostrarTrecho?: boolean }
+const { post, mostrarTrecho = true } = Astro.props;
+---
+<article class="cartao">
+  <h3><a href={url(`escritos/${post.id}/`)}>{post.data.title}</a></h3>
+  <p class="meta">
+    <time datetime={isoDay(post.data.date)}>{formatDate(post.data.date)}</time>
+    {post.data.location && <span>{post.data.location}</span>}
+  </p>
+  {mostrarTrecho && <p class="trecho">{trecho(post.body ?? '')}</p>}
+</article>

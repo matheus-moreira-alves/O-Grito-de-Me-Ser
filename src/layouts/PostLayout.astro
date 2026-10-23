@@ -1,0 +1,30 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { url, formatDate, isoDay, slugTag, trecho } from '../lib/util';
+import type { Post } from '../lib/posts';
+
+interface Props { post: Post; anterior?: Post; proximo?: Post }
+const { post, anterior, proximo } = Astro.props;
+const d = post.data;
+---
+<BaseLayout titulo={d.title} descricao={d.description ?? trecho(post.body ?? '', 160)} tipo="article">
+  <article class="leitura" lang={d.lang}>
+    <header class="leitura-cabeca">
+      <h1>{d.title}</h1>
+      <p class="meta">
+        <time datetime={isoDay(d.date)}>{formatDate(d.date)}</time>
+        {d.location && <span>{d.location}</span>}
+      </p>
+    </header>
+    <div class="texto"><slot /></div>
+    {d.tags.length > 0 && (
+      <p class="marcadores">
+        {d.tags.map((t) => <a href={url(`tags/${slugTag(t)}/`)}>{t}</a>)}
+      </p>
+    )}
+  </article>
+  <nav class="vizinhos" aria-label="Outros escritos">
+    {anterior ? <a rel="prev" href={url(`escritos/${anterior.id}/`)}><small>Mais antigo</small>{anterior.data.title}</a> : <span />}
+    {proximo ? <a rel="next" href={url(`escritos/${proximo.id}/`)}><small>Mais novo</small>{proximo.data.title}</a> : <span />}
+  </nav>
+</BaseLayout>

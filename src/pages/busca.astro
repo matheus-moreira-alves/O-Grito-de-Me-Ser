@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/util';
+const indice = url('busca-index.json');
+---
+<BaseLayout titulo="Busca" descricao="Procure palavras nos escritos.">
+  <section class="lista">
+    <h1>Busca</h1>
+    <label class="campo" for="q">Palavras para procurar</label>
+    <input id="q" type="search" autocomplete="off" placeholder="uma palavra, uma frase" />
+    <p id="estado" class="meta" role="status"></p>
+    <ol id="resultados" class="resultados"></ol>
+  </section>
+  <script is:inline define:vars={{ indice }}>
+    (function () {
+      var norm = function (s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); };
+      var q = document.getElementById('q'), estado = document.getElementById('estado'), lista = document.getElementById('resultados');
+      var dados = null, carregando = null;
+      function carregar() {
+        if (!carregando) carregando = fetch(indice).then(function (r) { return r.json(); }).then(function (j) {
+          dados = j.map(function (p) { p.n = norm(p.t + ' ' + p.g.join(' ') + ' ' + p.x); p.nx = norm(p.x); return p; });
+        });
+        return carregando;
+      }
+      function trecho(p, termos) {
+        var i = -1;
+        for (var k = 0; k < termos.length && i < 0; k++) i = p.nx.indexOf(termos[k]);
+        if (i < 0) return null;
+        var ini = Math.max(0, i - 70), fim = Math.min(p.x.length, i + 110);
+        return { antes: (ini > 0 ? '…' : '') + p.x.slice(ini, i), achado: p.x.slice(i, i + termos[k - 1].length), depois: p.x.slice(i + termos[k - 1].length, fim) + (fim < p.x.length ? '…' : '') };
+      }
+      function buscar() {
+        var termos = norm(q.value).split(/\s+/).filter(Boolean);
+        lista.textContent = '';
+        if (!termos.length) { estado.textContent = ''; return; }
+        carregar().then(function () {
+          var achados = dados.filter(function (p) { return termos.every(function (t) { return p.n.indexOf(t) >= 0; }); });
+          estado.textContent = achados.length === 0 ? 'Nenhum escrito encontrado.' : achados.length === 1 ? '1 escrito encontrado.' : achados.length + ' escritos encontrados.';
+          achados.forEach(function (p) {
+            var li = document.createElement('li'), a = document.createElement('a'), pe = document.createElement('p');
+            a.href = p.u; a.textContent = p.t; li.appendChild(a);
+            var t = trecho(p, termos);
+            if (t) {
+              var m = document.createElement('mark'); m.textContent = t.achado;
+              pe.appendChild(document.createTextNode(t.antes)); pe.appendChild(m); pe.appendChild(document.createTextNode(t.depois));
+              li.appendChild(pe);
+            }
+            lista.appendChild(li);
+          });
+        }).catch(function () { estado.textContent = 'Não foi possível carregar a busca.'; });
+      }
+      q.addEventListener('input', buscar);
+      var inicial = new URLSearchParams(location.search).get('q');
+      if (inicial) { q.value = inicial; buscar(); }
+    })();
+  </script>
+</BaseLayout>

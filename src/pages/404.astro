@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/util';
+---
+<BaseLayout titulo="Página não encontrada" noindex>
+  <section class="lista">
+    <h1>Página não encontrada</h1>
+    <p>Este endereço não existe. Procure no <a href={url('arquivo/')}>arquivo</a> ou use a <a href={url('busca/')}>busca</a>.</p>
+  </section>
+</BaseLayout>

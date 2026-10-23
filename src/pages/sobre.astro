@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
+---
+<BaseLayout titulo="Sobre" descricao={SITE.descricaoCurta}>
+  <section class="leitura">
+    <header class="leitura-cabeca"><h1>Sobre</h1></header>
+    <div class="texto">
+      <p>{SITE.apresentacao}</p>
+      <p>{SITE.perfil}</p>
+      <p>— {SITE.autor}</p>
+      <!-- Para mudar esta página, edite src/config.ts (textos) ou este arquivo. -->
+    </div>
+  </section>
+</BaseLayout>

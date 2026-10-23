@@ -1,0 +1,33 @@
+---
+// Páginas de aviso nos endereços antigos do Blogger (/2026/10/acude.html → /escritos/acude/).
+// Só funcionam se o novo site passar a responder nesses endereços (ex.: domínio próprio no futuro);
+// no blogspot.com o Blogger não permite redirecionar para fora.
+import { getPosts } from '../../../lib/posts';
+import { url } from '../../../lib/util';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const saida = [];
+  for (const p of posts) {
+    const m = p.data.originalUrl?.match(/^https?:\/\/[^/]+\/(\d{4})\/(\d{2})\/([^/]+\.html)$/);
+    if (m) saida.push({ params: { ano: m[1], mes: m[2], arquivo: m[3] }, props: { id: p.id, titulo: p.data.title } });
+  }
+  return saida;
+}
+const { id, titulo } = Astro.props;
+const destino = url(`escritos/${id}/`);
+const canonico = new URL(destino, Astro.site).href;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>{titulo}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href={canonico} />
+    <meta http-equiv="refresh" content={`0; url=${destino}`} />
+  </head>
+  <body>
+    <p>Este texto mudou de endereço: <a href={destino}>{titulo}</a>.</p>
+  </body>
+</html>
